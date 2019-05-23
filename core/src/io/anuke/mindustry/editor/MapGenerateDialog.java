@@ -91,14 +91,14 @@ public class MapGenerateDialog extends FloatingDialog{
             t.pane(p -> filterTable = p).width(300f).get().setScrollingDisabled(true, false);
         }).grow();
 
-        buffer1 = create();
-        buffer2 = create();
+        buffer1 = createDummyTile(scaling);
+        buffer2 = createDummyTile(scaling);
 
         update();
         rebuildFilters();
     }
 
-    DummyTile[][] create(){
+    DummyTile[][] createDummyTile(int scaling){
         DummyTile[][] out = new DummyTile[editor.width() / scaling][editor.height() / scaling];
 
         for(int x = 0; x < out.length; x++){
@@ -208,13 +208,7 @@ public class MapGenerateDialog extends FloatingDialog{
         }
 
         //writeback buffer
-        DummyTile[][] writeTiles = new DummyTile[editor.width()][editor.height()];
-
-        for(int x = 0; x < editor.width(); x++){
-            for(int y = 0; y < editor.height(); y++){
-                writeTiles[x][y] = new DummyTile();
-            }
-        }
+        DummyTile[][] writeTiles = createDummyTile(1);
 
         for(GenerateFilter filter : filters){
             input.setFilter(filter, editor.width(), editor.height(), 1, (x, y) -> dset(editor.tile(x, y)));

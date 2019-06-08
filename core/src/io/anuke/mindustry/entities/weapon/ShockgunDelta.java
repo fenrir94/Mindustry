@@ -4,18 +4,17 @@ import io.anuke.mindustry.content.Bullets;
 import io.anuke.mindustry.content.Fx;
 import io.anuke.mindustry.type.Weapon;
 
-public class Swarmer extends Weapon {
-    public Swarmer(String name){
+public class ShockgunDelta extends Weapon {
+    public ShockgunDelta(String name){
         super(name);
-        length = 1.5f;
-        recoil = 4f;
+        shake = 2f;
+        length = 1f;
         reload = 45f;
-        shots = 4;
-        spacing = 8f;
-        inaccuracy = 8f;
+        shotDelay = 3f;
         roundrobin = true;
+        shots = 2;
+        inaccuracy = 0f;
         ejectEffect = Fx.none;
-        shake = 3f;
-        bullet = Bullets.missileSwarm;
+        bullet = Bullets.lightning;
     }
 }

@@ -4,8 +4,8 @@ import io.anuke.mindustry.content.Bullets;
 import io.anuke.mindustry.content.Fx;
 import io.anuke.mindustry.type.Weapon;
 
-public class Missile extends Weapon {
-    public Missile(String name){
+public class MissileJaveline extends Weapon {
+    public MissileJaveline(String name){
         super(name);
         length = 1.5f;
         reload = 70f;
